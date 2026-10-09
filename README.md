@@ -19,9 +19,11 @@ These five templates mirror the starter note content built into Driftleaf.
 
 ## Additional standalone templates
 
-The following are additional roadmap templates. They are included here as
+The following are additional templates. They are included here as
 ordinary Markdown files only; they are **not** registered or included in the
 Driftleaf app.
+
+Download the ZIP archive for your preferred template from the [Releases page](https://github.com/AetherAssembly/Driftleaf-Templates/releases), then import it into Driftleaf.
 
 - **Projects**: a general project portfolio and project brief.
 - **Programming Project**: software project planning, implementation notes,
