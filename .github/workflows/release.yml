@@ -1,15 +1,13 @@
 name: Publish template archives
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
     inputs:
       tag:
-        description: >-
-          Existing release tag to upload archives to (for example, v1).
-          Dispatch from a branch containing the validator.
+        description: Version tag to publish (for example, v1.0.0).
         required: true
         type: string
 
@@ -17,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: publish-template-archives-${{ github.event.release.tag_name || inputs.tag }}
+  group: publish-template-archives-${{ github.event_name == 'push' && github.ref_name || inputs.tag }}
   cancel-in-progress: false
 
 jobs:
@@ -28,7 +26,7 @@ jobs:
       - name: Check out release tag
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.release.tag_name || github.ref }}
+          ref: ${{ github.ref }}
           persist-credentials: false
 
       - name: Set up Python
@@ -42,5 +40,12 @@ jobs:
       - name: Upload archives and checksums to the release
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
-        run: gh release upload "$RELEASE_TAG" dist/* --clobber
+          RELEASE_TAG: ${{ github.event_name == 'push' && github.ref_name || inputs.tag }}
+        run: |
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" \
+              --title "$RELEASE_TAG" \
+              --notes "Downloadable template archives for Driftleaf." \
+              --verify-tag
+          fi
+          gh release upload "$RELEASE_TAG" dist/* --clobber
