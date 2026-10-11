@@ -1,2 +1,4 @@
 *.zip
 *.txt
+__pycache__/
+*.py[cod]

@@ -139,6 +139,9 @@ class TemplateValidationTests(unittest.TestCase):
             template = root / "general"
             template.mkdir()
             (template / "note.md").write_text("# Notes\n", encoding="utf-8")
+            projects = template / "Projects"
+            projects.mkdir()
+            (projects / "Project Notes.md").write_text("# Project Notes\n", encoding="utf-8")
             output = root / "dist"
 
             package_templates(root, output)
@@ -149,6 +152,11 @@ class TemplateValidationTests(unittest.TestCase):
                 sorted(path.name for path in output.glob("*.zip")),
                 ["general.zip"],
             )
+            with zipfile.ZipFile(output / "general.zip") as archive:
+                self.assertEqual(
+                    set(archive.namelist()),
+                    {"note.md", "Projects/Project Notes.md"},
+                )
             self.assertIn("  general.zip\n", (output / "checksums.txt").read_text())
 
 
