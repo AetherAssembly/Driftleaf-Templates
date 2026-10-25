@@ -1,7 +1,7 @@
-# Driftleaf Vault Templates
+# Driftleaf Branch Templates
 
 Ready-made notes and folder layouts to help you get started with Driftleaf.
-Choose a template, download its ZIP, and import it into your vault. You can
+Choose a template, download its ZIP, and import it into your branch. You can
 also browse or customize the files in this repository.
 
 ## Use a template
@@ -12,12 +12,12 @@ also browse or customize the files in this repository.
 3. Import the ZIP into Driftleaf.
 
 Each ZIP is named after its template folder, such as `meeting-notes.zip`. The
-files inside are ready to go directly into your vault: any subfolders are
+files inside are ready to go directly into your branch: any subfolders are
 preserved, but the template folder itself is not added as an extra level.
 
 ## Templates included in Driftleaf
 
-These templates are available as starter options when creating a vault:
+These templates are available as starter options when creating a branch:
 
 - **Blank** — Start fresh. Driftleaf creates a `Welcome to Driftleaf` note.
 - **General notes** — An inbox and project notes.

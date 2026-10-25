@@ -23,5 +23,5 @@ health concerns or decisions, consult a qualified healthcare professional.
 
 ## Privacy note
 
-Only record information you are comfortable storing in this vault. Keep a
-strong vault passphrase and a backup strategy that suits your privacy needs.
+Only record information you are comfortable storing in this branch. Keep a
+strong branch passphrase and a backup strategy that suits your privacy needs.
