@@ -1,7 +1,10 @@
 # Study Log
 
 ## Session
-- Date:
-- Subject:
-- Focus:
-- Notes:
+
+Copy this section for each study session.
+
+- **Date:**
+- **Subject:**
+- **Focus:**
+- **Notes:**
